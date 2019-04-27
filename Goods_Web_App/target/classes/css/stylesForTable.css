@@ -1,0 +1,25 @@
+table{
+    border: 1px red;
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 1px solid red;
+    text-align: center !important;
+}
+table tr td{
+    word-break: break-all;
+}
+
+.WH {
+    height: 50px;
+    width: 150px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
