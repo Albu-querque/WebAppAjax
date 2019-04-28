@@ -20,15 +20,3 @@ $(document).mouseup(function (e) {
 
     }
 });
-
-// открыть по таймеру
-$(window).on('load', function () {
-    setTimeout(function(){
-        if($('.js-overlay-campaign').hasClass('disabled')) {
-            return false;
-        } else {
-
-            $(".js-overlay-campaign").fadeIn();
-        }
-    }, 5000);
-});

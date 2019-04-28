@@ -28,13 +28,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean updateProduct(long id) {
-        return productDAO.updateProduct(findById(id));
+    public boolean updateProduct(Product product) {
+        return productDAO.updateProduct(product);
     }
 
     @Override
-    public void saveProduct(Product product) {
-        productDAO.saveProduct(product);
+    public Product saveProduct(Product product) {
+        return productDAO.saveProduct(product);
     }
 
     @Override

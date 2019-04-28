@@ -20,6 +20,6 @@ public interface ProductDAO {
     Product findById(long id);
     List<Product> getListProducts();
     boolean updateProduct(Product product);
-    void saveProduct(Product product);
+    Product saveProduct(Product product);
     boolean deleteProduct(long id);
 }
