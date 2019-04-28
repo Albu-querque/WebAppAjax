@@ -20,12 +20,9 @@
 
     <script>
         var LIST_PRODUCTS = "/listProducts";
-
         $(document).ready(function() {
-
             var table = $('table');
-
-            function showTable() {
+            //ЗАГРУЖАЕМ ТАБЛИЧКУ ПРИ ПЕРВОМ ОБРАЩЕНИИ К СТРАНИЦЕ
                 $.ajax({
                     type: "GET",
                     url: LIST_PRODUCTS,
@@ -47,9 +44,30 @@
                         alert("Exception on out");
                     }
                 });
-            }
 
-            showTable();
+
+                //РЕДАКТИРОВАНИЕ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //УДАЛЕНИЕ
             $(document).on('click', '.delete', function () {
@@ -70,7 +88,8 @@
 
             $('#form').submit(function () {
                 sendAjaxForm();
-                console.log(response);
+                $("#reset").click();
+                event.preventDefault();
             });
 
             function sendAjaxForm() {
@@ -90,10 +109,17 @@
                     contentType:"application/json; charset=utf-8",
                     async: true,
                     success: function (response) {
-                        alert(response)
-                    },
-                    error: function (res) {
-                        alert(res);
+                        table.append(
+                            "<tr>" +
+                            "<td>" + response.id + "</td>" +
+                            "<td>" + response.name + "</td>"+
+                            "<td>" + response.description + "</td>"+
+                            "<td>" + response.create_date + "</td>"+
+                            "<td>" + response.place_storage + "</td>"+
+                            "<td>" + response.reserved + "</td>" +
+                            "<td><a href='#' data-id='" + response.id + "' class='delete'>удалить</a></td>" +
+                            "<td><a href='/' data-id='" + response.id + "' class='edit'>редактировать</a></td>" +
+                            "</tr>");
                     }
                 });
             }
@@ -104,7 +130,7 @@
             });
 
             // закрыть на крестик
-            $('.js-close-create').click(function() {
+            var fo = $('.js-close-create').click(function() {
                 $('#reset').click();
                 $('.js-overlay-create').fadeOut();
             });
@@ -165,7 +191,7 @@
     </div>
 </div>
 
-<%--<div class="overlay js-overlay-campaign">
+<%--<div class="overlay js-overlay-edit">
     <div class="popup js-popup-campaign" >
         <form id="formEdit" action="">
             <label id="forName2" for="name2">Наименование товара</label>
