@@ -27,11 +27,10 @@ public class ProductController {
         return productService.getListProducts();
     }
 
-    @PostMapping(value = "/create", consumes = {"application/json","application/x-www-form-urlencoded;charset=UTF-8"}, produces = "application/json")
-    public Product createProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
+    @PostMapping("/create")
+    public void createProduct(@RequestBody Product product) {
+         productService.saveProduct(product);
     }
-
     @PutMapping("/updateProduct")
     public Product updateProduct(@RequestBody Product product) {
         return updateProduct(product);

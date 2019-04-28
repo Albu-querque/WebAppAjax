@@ -43,14 +43,13 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public Product saveProduct(Product product) {
-        assert jdbcTemplate.update("INSERT INTO goods(name, description, create_date, place_storage, reserved) VALUES(?, ?, ?, ?)",
+    public void saveProduct(Product product) {
+        jdbcTemplate.update("INSERT INTO goods(name, description, create_date, place_storage, reserved) VALUES(?, ?, ?, ?, ?)",
                 product.getName(),
                 product.getDescription(),
                 product.getCreate_date(),
                 product.getPlace_storage(),
-                product.isReserved()) > 0;
-        return findById(product.getId());
+                product.isReserved());
     }
 
     @Override
