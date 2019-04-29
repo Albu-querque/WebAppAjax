@@ -1,24 +1,5 @@
 body {margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; }
 
-.button {
-    width: 100px;
-    height: 20px;
-    margin: 0 auto;
-    position: relative;
-    bottom: auto;
-    border-radius: 3px;
-    background-color: #6cff13;
-    text-align: center;
-    cursor: pointer;
-}
-
-.button span {
-    color: #f9f3ff;
-    font-weight: bold;
-    font-size: 15px;
-    text-transform: lowercase;
-}
-
 .overlay {
     position: absolute;
     width: 100%;

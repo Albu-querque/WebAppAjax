@@ -23,3 +23,13 @@ table tr td{
     align-items: center;
 }
 
+.field {clear:both; text-align:right; line-height:25px;}
+.main {float:left}
+label {float:left; padding-right:10px;}
+input{width: 325px}
+input[type=radio] {
+    width: auto;
+    left: auto;
+}
+textarea{width: 325px}
+.forRadio{ float: bottom}

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 
@@ -21,7 +20,7 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
-    /*produces = {MediaType.APPLICATION_JSON_VALUE}*/
+
     @GetMapping
     public List<Product> listProducts() {
         return productService.getListProducts();
@@ -33,7 +32,7 @@ public class ProductController {
     }
     @PutMapping("/updateProduct")
     public Product updateProduct(@RequestBody Product product) {
-        return updateProduct(product);
+        return productService.updateProduct(product);
     }
 
     @DeleteMapping("/delete/{id}")

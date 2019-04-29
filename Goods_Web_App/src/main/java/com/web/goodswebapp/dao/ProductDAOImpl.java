@@ -38,14 +38,15 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public boolean updateProduct(Product product) {
-        return jdbcTemplate.update("UPDATE goods SET name=?, description=?, create_date=?, place_storage=?, reserved=? WHERE id=?",
+    public Product updateProduct(Product product) {
+        jdbcTemplate.update("UPDATE goods SET name=?, description=?, create_date=?, place_storage=?, reserved=? WHERE id=?",
                 product.getName(),
                 product.getDescription(),
                 product.getCreate_date(),
                 product.getPlace_storage(),
                 product.isReserved(),
-                product.getId()) > 0;
+                product.getId());
+        return findById(product.getId());
     }
 
     /*@Override
